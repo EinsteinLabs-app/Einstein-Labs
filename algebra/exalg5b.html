@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einstein Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #d8d5d5;
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        .caixa-geral {
+            position: relative;
+            display: flex;
+            width: 50%;
+            height: 100vh;
+            background-color: #E9E3E3; 
+            margin: 0 auto;
+            box-shadow:  0 0 20px rgba(240, 240, 240, 0.8);
+        }
+        
+        menu {
+            width: 100%;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+            bottom: 130px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        menu .blabla {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+        }
+        
+        section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .caixainicial {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #C46EA2;
+            width: 100vw;
+            height: 35vh;
+            border-radius: 0px 0px 30px 30px;
+            border: solid black 1px;
+            box-shadow: 0px 13px 3px -1px rgba(156,156,156,0.55);
+            -webkit-box-shadow: 0px 13px 3px -1px rgba(156,156,156,0.55);
+            -moz-box-shadow: 0px 13px 3px -1px rgba(156,156,156,0.55);
+        }
+        
+        .caixainicial h1 {
+            color: white;
+            font-size: 30PX;
+        }
+
+        .alternativas {
+            background-color: #D9D9D9;
+            height: 600px;
+            width: 100vw;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .alternativas a {
+            text-decoration: none;
+            background-color: #C46EA2;
+            height: 100px;
+            width: 90%;
+            border-radius: 20px;
+            border: #ffffff solid 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .alternativas a:hover {
+            transform: scale(1.02);
+            background-color: #d17c68;
+        }
+        
+        .alternativas a h1 {
+            color: white;
+            font-size: 21px;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .menu {
+            position: fixed;
+            width: 100%;
+            height: 100px;
+            bottom: 0px;
+            background-color: #CCC9CC;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .item {
+            background-color: #E9E3E3;
+            border: 1px black solid;
+            width: 70px;
+            height: 40px;
+            border-radius: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .item2 {
+            background-color: #E9E3E3;
+            border: 1px black solid;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 80px;
+            border-radius: 50px 50px 90px 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vector1 {
+            width: 30px;
+            height: 30px;
+        }
+
+        .vector2 {
+            width: 50px;
+            height: 50px;
+        }
+        
+        /* Estilos para o feedback */
+        .feedback-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feedback-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .feedback-box {
+            background-color: white;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .feedback-box.correct {
+            border: 5px solid #4CAF50;
+        }
+        
+        .feedback-box.incorrect {
+            border: 5px solid #F44336;
+        }
+        
+        .feedback-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .feedback-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .feedback-message {
+            font-size: 20px;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+        
+        .feedback-button {
+            background-color: #CB735F;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            font-family: "Oswald", sans-serif;
+            transition: background-color 0.3s;
+        }
+        
+        .feedback-button:hover {
+            background-color: #b45d4a;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="caixainicial">
+            <h1>5-Na equação x2−5x+6=0, qual é o valor do discriminante (Δ)?</h1>
+        </div>
+
+        <div class="alternativas">
+           <a class="alt2" data-value="0">
+                <h1>25</h1>
+            </a>
+            <br>
+             <a class="alt1" data-value="1">
+                <h1>1</h1>
+            </a>
+            <br>
+            <a class="alt3" data-value="2">
+                <h1>36</h1>
+            </a>
+            <br>
+            <a class="alt4" data-value="3">
+                <h1>-1</h1>
+            </a>
+        </div>
+
+    
+    </section>
+
+    <!-- Overlay de Feedback -->
+    <div class="feedback-overlay" id="feedbackOverlay">
+        <div class="feedback-box" id="feedbackBox">
+            <div class="feedback-icon" id="feedbackIcon"></div>
+            <h2 class="feedback-title" id="feedbackTitle"></h2>
+            <p class="feedback-message" id="feedbackMessage"></p>
+            <a href="ofimdessaporraalg.html"><button class="feedback-button" id="feedbackButton">Continuar</button></a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const alternatives = document.querySelectorAll('.alternativas a');
+            const feedbackOverlay = document.getElementById('feedbackOverlay');
+            const feedbackBox = document.getElementById('feedbackBox');
+            const feedbackIcon = document.getElementById('feedbackIcon');
+            const feedbackTitle = document.getElementById('feedbackTitle');
+            const feedbackMessage = document.getElementById('feedbackMessage');
+            const feedbackButton = document.getElementById('feedbackButton');
+            
+            // Resposta correta (índice baseado em zero)
+            const correctAnswerIndex = 1; // "Usando o Teorema de Pitágoras..." é a resposta correta
+            
+            // Explicações para cada alternativa
+         // Explicações para cada alternativa
+const explanations = {
+    0: {
+        title: "Resposta Incorreta",
+        message: "A fórmula x = 2ab±Δ não resolve equações do 2º grau. A fórmula correta de Bhaskara é: x = -b ± √(b² - 4ac) / 2a."
+    },
+    1: {
+        title: "Resposta Correta!",
+        message: "Excelente! A fórmula correta para resolver equações quadráticas é: x = -b ± √(b² - 4ac) / 2a."
+    },
+    2: {
+        title: "Resposta Incorreta",
+        message: "A fórmula x = 2ca±b não é usada para resolver equações do 2º grau. A fórmula correta de Bhaskara é: x = -b ± √(b² - 4ac) / 2a."
+    },
+    3: {
+        title: "Resposta Incorreta",
+        message: "A fórmula x = a² + b² não resolve equações do 2º grau. A fórmula correta de Bhaskara é: x = -b ± √(b² - 4ac) / 2a."
+    }
+};
+
+
+            // Adicionar evento de clique para cada alternativa
+            alternatives.forEach(alternative => {
+                alternative.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const selectedValue = parseInt(this.getAttribute('data-value'));
+                    const isCorrect = selectedValue === correctAnswerIndex;
+                    
+                    // Configurar o feedback baseado na resposta
+                    showFeedback(explanations[selectedValue], isCorrect);
+                });
+            });
+            
+            // Função para mostrar o feedback
+            function showFeedback(feedback, isCorrect) {
+                feedbackIcon.textContent = isCorrect ? "✓" : "✗";
+                feedbackTitle.textContent = feedback.title;
+                feedbackMessage.textContent = feedback.message;
+                
+                // Aplicar estilos diferentes para resposta correta/incorreta
+                if (isCorrect) {
+                    feedbackBox.classList.add('correct');
+                    feedbackBox.classList.remove('incorrect');
+                    feedbackIcon.style.color = '#4CAF50';
+                } else {
+                    feedbackBox.classList.add('incorrect');
+                    feedbackBox.classList.remove('correct');
+                    feedbackIcon.style.color = '#F44336';
+                }
+                
+                // Mostrar o overlay de feedback
+                feedbackOverlay.classList.add('active');
+            }
+            
+            // Evento para o botão de continuar
+            feedbackButton.addEventListener('click', function() {
+                feedbackOverlay.classList.remove('active');
+                
+                // Aqui você pode adicionar lógica para avançar para a próxima pergunta
+                // ou redirecionar para outra página, se necessário
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d8d5d5;
+    font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+.caixa-geral {
+    position: relative;
+    display: flex;
+    width: 50%;
+    height: 100vh;
+    background-color: #E9E3E3; 
+    margin: 0 auto;
+    box-shadow:  0 0 20px rgba(240, 240, 240, 0.8);
+
+        
+            }
+            menu{
+                width: 100%;
+                height: 150px;
+                background-color: red;
+                position: absolute;
+                bottom: 130px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+            menu .blabla{
+                width: 50px;
+                height: 50px;
+                background-color: aqua;
+                
+            }
+                section{
+        width: 100%;
+        height: 100vh;
+    }
+
+    .caixainicial{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: rgb(235, 231, 231);
+        width: 100vw;
+        height: 35vh;
+        border-radius: 0px 0px 30px 30px;
+        border: solid black 1px;
+        box-shadow: 0px 13px 3px -1px rgba(156,156,156,0.55);
+-webkit-box-shadow: 0px 13px 3px -1px rgba(156,156,156,0.55);
+-moz-box-shadow: 0px 13px 3px -1px rgba(156,156,156,0.55);
+
+    }
+    .caixainicial h1{
+        color: white;
+        -webkit-text-stroke: 0.01px rgb(36, 31, 31);
+        font-size: 35px;
+        
+    }
+
+    .materias{
+        background-color: #D9D9D9;
+        height: 650px;
+        width: 100vw;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .geometriaplana {
+        text-decoration: none;
+        background-color: #CB735F;
+        height: 100px;
+        width: 90%;
+        border-radius: 20px 20px 20px 20px;
+         border: #ffffff solid 3px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+    }
+    .geometriaplana h1{
+        color: white;
+        font-size: 30px;
+    }
+    .analise{
+       text-decoration: none;
+        height: 100px;
+        width: 90%;
+         border-radius: 20px 20px 20px 20px;
+          border: #ffffff solid 3px;
+            background-color: #CA8F6F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    }
+    .analise h1{
+        color: white;
+        font-size: 30px;
+    }
+    .algebra{
+       text-decoration: none;
+        height: 100px;
+        width: 90%;
+         border-radius: 20px 20px 20px 20px;
+          background-color: #B51D78;
+           border: #ffffff solid 3px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+    }
+    .algebra h1{
+        color: white;
+        font-size: 30px;
+    }
+    .aritmetica{
+        text-decoration: none;
+        background-color: #BF5454;
+        height: 100px;
+        width: 90%;
+         border-radius: 20px 20px 20px 20px;
+         border: #ffffff solid 3px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+    }
+    .aritmetica h1{
+        color: white;
+        font-size: 30px;
+    }
+    .combinatoria{
+        text-decoration: none;
+        background-color: #CB735F;
+        height: 100px;
+        width: 90%;
+         border-radius: 20px 20px 20px 20px;
+         border: #ffffff solid 3px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+    }
+    .combinatoria h1{
+        color: white;
+        font-size: 30px;
+    }
+    .teoria{
+        text-decoration: none;
+         background-color: #CDA088;
+        height: 100px;
+        width: 90%;
+         border-radius: 20px 20px 20px 20px;
+         border: #ffffff solid 3px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+    }
+    .teoria h1{
+        color: white;
+        font-size: 30px;
+    }
+
+    .menu{
+        
+        position: fixed;
+        width: 100%;
+        height: 100px;
+        bottom: 0px;
+        background-color: #CCC9CC;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    .item{
+        background-color: #E9E3E3;
+        border: 1px black solid;
+        width: 70px;
+        height: 40px;
+        border-radius: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .item2{
+        background-color: #E9E3E3;
+        border: 1px black solid;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 80px;
+        border-radius: 50px 50px 90px 90px ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .vector1{
+        width: 30px;
+        height: 30px;
+    }
+
+    .vector2{
+        width: 50px;
+        height: 50px;
+    }
